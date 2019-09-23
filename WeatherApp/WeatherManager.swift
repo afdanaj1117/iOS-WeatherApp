@@ -8,19 +8,36 @@
 import Foundation
 import UIKit
 
+/// Extension for Notification Names
 extension Notification.Name {
     static let ACTION_CURRENT_WEATHER = Notification.Name(rawValue: "ACTION_CURRENT_WEATHER")
     static let ACTION_FIVE_DAY_FORECAST = Notification.Name(rawValue: "ACTION_FIVE_DAY_FORECAST")
 }
+
+/// Weather API Manager
 class WeatherManager : NSObject {
+    
+    /// Static shared reference to manager class
     static let shared = WeatherManager()
     
+    /// API Key to access weather API
     static let API_KEY = "e517096056d3efc0cd3ab105e78fe7c8"
+    
+    /// Key for passing weather data over dictionary
     static let WEATHER_DATA = "WEATHER_DATA"
+    
+    /// Key for passing forecast data over dictionary
     static let FORECAST_DATA = "FORECAST_DATA"
     
+    /**
+        Get current weather at a location
+        - Parameters:
+            - lat: Latitude
+            - lon: Longitute
+        - Remark: Result is posted via notificaion center .ACTION CURRENT WEATHER
+     */
     func getCurrentWeather(lat: Double, lon: Double){
-        let api = URL(string: "api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&APPID=\(WeatherManager.API_KEY)&units=imperial")!
+        let api = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&APPID=\(WeatherManager.API_KEY)&units=imperial")!
         
         let task = URLSession.shared.dataTask(with: api) {(data, response, error) in
             guard let data = data else { return }
@@ -37,8 +54,16 @@ class WeatherManager : NSObject {
         task.resume()
     }
     
+    /**
+       Get five day forecast at a location
+       - Parameters:
+           - lat: Latitude
+           - lon: Longitute
+       - Remark: Result is posted via notificaion center .ACTION FIVE DAY FORECAST
+    */
     func getFiveDayForecast(lat: Double, lon: Double){
-        let api = URL(string: "api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&APPID=\(WeatherManager.API_KEY)&units=imperial")!
+        let api = URL(string: "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&APPID=\(WeatherManager.API_KEY)&units=imperial")!
+     
         let task = URLSession.shared.dataTask(with: api) {(data, response, error) in
             guard let data = data else { return }
             print(String(data: data, encoding: .utf8)!)
@@ -54,10 +79,20 @@ class WeatherManager : NSObject {
         task.resume()
     }
     
+    /**
+        Post a notification to notification center
+        - Parameters:
+            - notifcation: Notification name
+            - data: Data to send with notification
+     */
     func postNotification(notificaion: Notification.Name, data: [AnyHashable: Any]?){
         NotificationCenter.default.post(name: notificaion, object: self, userInfo: data)
     }
 }
+
+// #################################################
+// Below are JSON objects to decode from weather API
+// #################################################
 
 struct CurrentWeather : Codable {
     var coord : Coordinate?
