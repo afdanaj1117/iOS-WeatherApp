@@ -15,6 +15,7 @@
 		522A654E23396AE300978DD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522A654C23396AE300978DD5 /* LaunchScreen.storyboard */; };
 		522A655923396AE400978DD5 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A655823396AE400978DD5 /* WeatherAppTests.swift */; };
 		522A656423396AE400978DD5 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A656323396AE400978DD5 /* WeatherAppUITests.swift */; };
+		522A657223396BA000978DD5 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A657123396BA000978DD5 /* WeatherManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		522A655F23396AE400978DD5 /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		522A656323396AE400978DD5 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		522A656523396AE400978DD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		522A657123396BA000978DD5 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				522A654A23396AE300978DD5 /* Assets.xcassets */,
 				522A654C23396AE300978DD5 /* LaunchScreen.storyboard */,
 				522A654F23396AE300978DD5 /* Info.plist */,
+				522A657123396BA000978DD5 /* WeatherManager.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				522A654623396AE100978DD5 /* ViewController.swift in Sources */,
 				522A654223396AE100978DD5 /* AppDelegate.swift in Sources */,
+				522A657223396BA000978DD5 /* WeatherManager.swift in Sources */,
 				522A654423396AE100978DD5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
