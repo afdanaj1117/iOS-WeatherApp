@@ -29,6 +29,30 @@ class WeatherManager : NSObject {
     /// Key for passing forecast data over dictionary
     static let FORECAST_DATA = "FORECAST_DATA"
     
+    override init() {
+        super.init()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(_:)), name: .LOCATION_UPDATED, object: nil)
+    }
+    
+    @objc func locationUpdated(_ notifcation: Notification){
+        if let userInfo = notifcation.userInfo {
+            let lat = userInfo[MainTabBarViewController.LATITUDE] as! Double
+            let lon = userInfo[MainTabBarViewController.LONGITUDE] as! Double
+            
+            var timeInterval : TimeInterval = 0
+            if let lastUpdated = UserDefaults.standard.object(forKey: "lastUpdated") as? Date {
+                timeInterval = Date().timeIntervalSince(lastUpdated)
+            }
+            
+            if timeInterval > 60.0 * 60.00  || timeInterval == 0{
+                self.getCurrentWeather(lat: lat, lon: lon)
+                self.getFiveDayForecast(lat: lat, lon: lon)
+                UserDefaults.standard.set(Date(), forKey: "lastUpdated")
+            }
+        }
+    }
+    
     /**
         Get current weather at a location
         - Parameters:
@@ -43,6 +67,8 @@ class WeatherManager : NSObject {
             guard let data = data else { return }
             print(String(data: data, encoding: .utf8)!)
 
+            UserDefaults.standard.set(String(data: data, encoding: .utf8)!, forKey: "weatherData")
+            
             guard let currentWeather = try? JSONDecoder().decode(CurrentWeather.self, from: data) else{
                 print("Error: Could't decode data to Current Weather")
                 return
@@ -68,6 +94,8 @@ class WeatherManager : NSObject {
             guard let data = data else { return }
             print(String(data: data, encoding: .utf8)!)
 
+            UserDefaults.standard.set(String(data: data, encoding: .utf8)!, forKey: "forecastData")
+            
             guard let forecast = try? JSONDecoder().decode(Forecast.self, from: data) else{
                 print("Error: Could't decode data to Forecast")
                 return
@@ -79,6 +107,7 @@ class WeatherManager : NSObject {
         task.resume()
     }
     
+
     /**
         Post a notification to notification center
         - Parameters:

@@ -18,6 +18,7 @@
 		522A65762339886200978DD5 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A65752339886200978DD5 /* MainTabBarViewController.swift */; };
 		522A65782339890100978DD5 /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A65772339890100978DD5 /* CurrentWeatherViewController.swift */; };
 		522A657A2339892D00978DD5 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A65792339892D00978DD5 /* ForecastViewController.swift */; };
+		522A65B82339949900978DD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A65B72339949900978DD5 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		522A65752339886200978DD5 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		522A65772339890100978DD5 /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
 		522A65792339892D00978DD5 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
+		522A65B72339949900978DD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				522A65752339886200978DD5 /* MainTabBarViewController.swift */,
 				522A65772339890100978DD5 /* CurrentWeatherViewController.swift */,
 				522A65792339892D00978DD5 /* ForecastViewController.swift */,
+				522A65B72339949900978DD5 /* SceneDelegate.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				522A657A2339892D00978DD5 /* ForecastViewController.swift in Sources */,
 				522A657223396BA000978DD5 /* WeatherManager.swift in Sources */,
 				522A65782339890100978DD5 /* CurrentWeatherViewController.swift in Sources */,
+				522A65B82339949900978DD5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.danaj.austin.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -473,7 +477,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.danaj.austin.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
