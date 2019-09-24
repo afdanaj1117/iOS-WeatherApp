@@ -22,34 +22,34 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="fl1-Bo-taa"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c1Q-Bb-AF3">
-                                    <size key="itemSize" width="153" height="324"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c1Q-Bb-AF3">
+                                    <size key="itemSize" width="151" height="287"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="forecastCell" id="9pP-64-Tco" customClass="ForecastCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="0.5" width="153" height="324"/>
+                                        <rect key="frame" x="20" y="19" width="151" height="287"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vXK-yf-kzd">
-                                            <rect key="frame" x="0.0" y="0.0" width="153" height="324"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="151" height="287"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RU9-VC-V8e">
-                                                    <rect key="frame" x="0.0" y="0.0" width="153" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="128" id="S4k-GG-Fxb"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDJ-eo-Mvq">
-                                                    <rect key="frame" x="8" y="148" width="137" height="21"/>
+                                                    <rect key="frame" x="8" y="148" width="135" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYA-s1-r0M">
-                                                    <rect key="frame" x="8" y="283" width="137" height="21"/>
+                                                    <rect key="frame" x="8" y="246" width="135" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                                 <constraint firstItem="RU9-VC-V8e" firstAttribute="top" secondItem="vXK-yf-kzd" secondAttribute="top" id="zIx-2M-POA"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="153" height="324"/>
+                                        <size key="customSize" width="151" height="287"/>
                                         <connections>
                                             <outlet property="imageIcon" destination="RU9-VC-V8e" id="NPJ-qD-f9o"/>
                                             <outlet property="lblDateTime" destination="LYA-s1-r0M" id="f7j-re-TnV"/>
