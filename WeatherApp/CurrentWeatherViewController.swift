@@ -12,8 +12,12 @@ class CurrentWeatherViewController: UIViewController {
     @IBOutlet weak var lblCity: UILabel!
     @IBOutlet weak var lblTemperature: UILabel!
     
+    @IBOutlet weak var lblDateTime: UILabel!
+    @IBOutlet weak var lblWeatherInfo: UILabel!
     @IBOutlet weak var imageIcon: UIImageView!
     
+    @IBOutlet weak var lblWind: UILabel!
+    @IBOutlet weak var lblHumidity: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +46,14 @@ class CurrentWeatherViewController: UIViewController {
     func updateUI(_ currentWeather: CurrentWeather){
         getWeatherIcon(id: currentWeather.weather![0].icon!)
         lblCity.text = currentWeather.name
+        lblWind.text = "\(currentWeather.wind!.speed!)"
+        lblHumidity.text = "\(currentWeather.main!.humidity!)%"
+        lblWeatherInfo.text = currentWeather.weather![0].description
         lblTemperature.text = "\(round(currentWeather.main!.temp!))°F"
+        let dateTime = Date.init(timeIntervalSince1970: TimeInterval(currentWeather.dt!))
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "MMM. dd, yyyy hh:mm:ss"
+        lblDateTime.text = "\(dateformatter.string(from: dateTime))"
     }
     
     func getWeatherIcon(id: String){
