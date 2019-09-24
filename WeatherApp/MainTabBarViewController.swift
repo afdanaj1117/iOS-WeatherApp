@@ -13,11 +13,14 @@ extension Notification.Name {
 }
 class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
 
+    /// location manager reference
     let locationManager = CLLocationManager()
     
+    // Keys for passing data through notification
     static let LATITUDE = "LATITUDE"
     static let LONGITUDE = "LONGITUDE"
     
+    // create shared reference for initalization
     let weatherManager = WeatherManager.shared
     
     override func viewDidLoad() {
@@ -31,6 +34,7 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
 
+        // Start locating if accepted
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -38,6 +42,9 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
         }
     }
     
+    /**
+        Get GPS location of user
+     */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         
@@ -45,6 +52,7 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
         userInfo[MainTabBarViewController.LATITUDE] = locValue.latitude
         userInfo[MainTabBarViewController.LONGITUDE] = locValue.longitude
         
+        // Send location to Weather Manager for calculation
         NotificationCenter.default.post(name: .LOCATION_UPDATED, object: self, userInfo: userInfo)
     }
 

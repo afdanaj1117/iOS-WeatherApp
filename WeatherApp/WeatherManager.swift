@@ -35,6 +35,10 @@ class WeatherManager : NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(_:)), name: .LOCATION_UPDATED, object: nil)
     }
     
+    /**
+        Location updated callback
+        - Parameter notification: Notification
+     */
     @objc func locationUpdated(_ notifcation: Notification){
         if let userInfo = notifcation.userInfo {
             let lat = userInfo[MainTabBarViewController.LATITUDE] as! Double

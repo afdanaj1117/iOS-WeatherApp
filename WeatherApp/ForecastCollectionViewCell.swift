@@ -13,17 +13,28 @@ class ForecastCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblTemperature: UILabel!
     @IBOutlet weak var lblDateTime: UILabel!
     
+    /**
+        Initialize UI for cell
+        - Parameters:
+            - temperature: Temperaure in Faherenheit
+            - imageId: Id of icon from API
+            - dateTime: DateTime of weather
+     */
     func prepare(temperature: Double, imageId: String, dateTime: Date){
         
         lblTemperature.text = "\(round(temperature))°F"
         
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "MMM. dd, yyyy hh:mm:ss"
+        dateformatter.dateFormat = "MMM. dd, yyyy hh:mm:ss a"
         lblDateTime.text = "\(dateformatter.string(from: dateTime))"
         
         self.getWeatherIcon(id: imageId)
     }
     
+    /**
+        Get weather icon from API
+        - Parameter id: Id of icon from API
+     */
     func getWeatherIcon(id: String){
       
         print("Download Started")
